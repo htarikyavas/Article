@@ -2,10 +2,12 @@
 using System.Threading.Tasks;
 using Article.Core.Domain;
 using Article.Services.Authors;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Article.WebApi.Controllers
 {
+    [Authorize]
     public class AuthorController : ControllerBase
     {
         private readonly IAuthorService _authorService;

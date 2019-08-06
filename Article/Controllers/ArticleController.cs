@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Article.Core.Models;
 using Article.Services.Articles;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Article.WebApi.Controllers
 {
+    [Authorize]
     public class ArticleController : ControllerBase
     {
         private readonly IArticleService articleService;
