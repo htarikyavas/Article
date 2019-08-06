@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Authors\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Article.Core\Article.Core.csproj" />
     <ProjectReference Include="..\Article.Data\Article.Data.csproj" />
   </ItemGroup>
