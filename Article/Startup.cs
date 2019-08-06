@@ -30,6 +30,7 @@ namespace Article
               )
                 .AddScoped(typeof(IRepository<>), typeof(Repository<>))
                 .AddScoped<IArticleService, ArticleService>()
+                .AddMemoryCache()
                 .AddMvcCore()
                 .AddJsonFormatters();
 
