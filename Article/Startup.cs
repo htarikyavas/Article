@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Article.Data;
+﻿using Article.Data;
 using Article.Data.Repositories;
 using Article.Services.Articles;
+using Article.Services.Authors;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +26,7 @@ namespace Article
               )
                 .AddScoped(typeof(IRepository<>), typeof(Repository<>))
                 .AddScoped<IArticleService, ArticleService>()
+                .AddScoped<IAuthorService, AuthorService>()
                 .AddMemoryCache()
                 .AddMvcCore()
                 .AddJsonFormatters();
@@ -43,10 +40,7 @@ namespace Article
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc();
         }
     }
 }
