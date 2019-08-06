@@ -15,5 +15,7 @@ namespace Article.Services.Authors
         Task Update(int id, AuthorModel author);
 
         Task<int> Add(AuthorModel author);
+
+        Task<AuthorModel> GetAuthorByEMailAndPassword(string email, string password);
     }
 }

@@ -74,12 +74,23 @@ namespace Article.Services.Authors
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<AuthorModel> GetAuthorByEMailAndPassword(string email, string password)
+        {
+            return await _authorRepository.Where(p => p.Email == email && p.Password == password).Select(p => new AuthorModel
+            {
+                Id = p.Id,
+                Email = p.Email,
+                Name = p.Name
+            }).FirstOrDefaultAsync();
+        }
+
         public async Task Update(int id, AuthorModel author)
         {
             var authorEntity = await _authorRepository.Get(id);
 
             authorEntity.Name = author.Name;
             authorEntity.Email = author.Email;
+            authorEntity.Password = author.Password;
 
             await _authorRepository.Update(authorEntity);
 
