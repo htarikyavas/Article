@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Article.Data;
+using Article.Data.Repositories;
+using Article.Services.Articles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -25,7 +27,10 @@ namespace Article
             services
               .AddDbContext<ArticleContext>(options =>
                   options.UseSqlServer(_config["database"], builder => builder.MigrationsAssembly(typeof(ArticleContext).Assembly.FullName))
-              ).AddMvcCore()
+              )
+                .AddScoped(typeof(IRepository<>), typeof(Repository<>))
+                .AddScoped<IArticleService, ArticleService>()
+                .AddMvcCore()
                 .AddJsonFormatters();
 
         }

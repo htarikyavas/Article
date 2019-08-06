@@ -1,6 +1,6 @@
 ﻿namespace Article.Core.Models
 {
-    public class ArticleModel
+    public class ArticleModel : BaseEntity
     {
         public int? AuthorId { get; set; }
 
