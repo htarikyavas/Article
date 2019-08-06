@@ -15,11 +15,12 @@ namespace Article.WebApi.Controllers
     public class LoginController : ControllerBase
     {
         public IAuthorService _authorService;
-        private SigningCredentials signingCredentials;
+        private SigningCredentials _signingCredentials;
 
-        public LoginController(IAuthorService authorService)
+        public LoginController(IAuthorService authorService, SigningCredentials signingCredentials)
         {
             _authorService = authorService;
+            _signingCredentials = signingCredentials;
         }
 
         [HttpPost]
@@ -39,7 +40,7 @@ namespace Article.WebApi.Controllers
 
             var handler = new JwtSecurityTokenHandler();
 
-            var access_token = handler.CreateEncodedJwt(issuer: "Article", audience: "Article Users", subject: ci, notBefore: DateTime.Now, issuedAt: DateTime.Now, expires: DateTime.Now + TimeSpan.FromHours(24), signingCredentials: signingCredentials);
+            var access_token = handler.CreateEncodedJwt(issuer: "Article", audience: "Article Users", subject: ci, notBefore: DateTime.Now, issuedAt: DateTime.Now, expires: DateTime.Now + TimeSpan.FromHours(24), signingCredentials: _signingCredentials);
 
             return new LoginResponseModel()
             {
