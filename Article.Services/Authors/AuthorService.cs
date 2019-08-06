@@ -26,7 +26,8 @@ namespace Article.Services.Authors
             var addedEntityId = await _authorRepository.Add(new Author()
             {
                 Name = author.Name,
-                Email = author.Email
+                Email = author.Email,
+                Password = author.Password
             });
 
             _cache.Remove(_cacheKey);
