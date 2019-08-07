@@ -26,3 +26,14 @@
 - Proje içerisindeki Article.postman_collection.json dosyası Postman uygulamasına import edilerek test edilebilir.
 
 ![ss](https://user-images.githubusercontent.com/6877358/62599318-94d48f00-b8f4-11e9-9f81-babf20332d39.PNG)
+
+
+### RoadMap
+
+- Entity ile modelleri maplemek için AutoMapper kullanılabilir
+- Validation eklenebilir
+- Authentication için IdentityServer kullanılabilir
+- Loglama için DatabaseLogger eklenebilir
+- Built-in Dependency Injection yerine 3. parti bir container kullanılabilir
+- Transaction Scope Abstraction'ı eklenebilir
+- Permission yapısı eklenebilir
