@@ -25,7 +25,8 @@
 
 - Proje içerisindeki Article.postman_collection.json dosyası Postman uygulamasına import edilerek test edilebilir.
 
-![ss](https://user-images.githubusercontent.com/6877358/62599318-94d48f00-b8f4-11e9-9f81-babf20332d39.PNG)
+![howtouse](https://user-images.githubusercontent.com/6877358/62602019-61493300-b8fb-11e9-92e9-7f155a4bedab.gif)
+
 
 
 ### RoadMap
@@ -37,3 +38,4 @@
 - Built-in Dependency Injection yerine 3. parti bir container kullanılabilir
 - Transaction Scope Abstraction'ı eklenebilir
 - Permission yapısı eklenebilir
+- Api Versiyonlama eklenebilir
