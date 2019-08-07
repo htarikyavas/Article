@@ -83,6 +83,10 @@ namespace Article
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
 
+            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<ArticleContext>().Database.Migrate();
+            }
 
             if (env.IsDevelopment())
             {
