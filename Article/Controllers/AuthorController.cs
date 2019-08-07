@@ -4,6 +4,7 @@ using Article.Core.Domain;
 using Article.Services.Authors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Article.WebApi.Controllers
 {
@@ -11,15 +12,19 @@ namespace Article.WebApi.Controllers
     public class AuthorController : ControllerBase
     {
         private readonly IAuthorService _authorService;
+        private readonly ILogger<AuthorController> _logger;
 
-        public AuthorController(IAuthorService _authorService)
+        public AuthorController(IAuthorService authorService, ILogger<AuthorController> logger)
         {
-            this._authorService = _authorService;
+            _authorService = authorService;
+            _logger = logger;
         }
 
         [HttpGet("author")]
         public async Task<List<AuthorModel>> All()
         {
+            _logger.LogInformation("All Authors Listed");
+
             return await _authorService.All();
         }
 

@@ -1,0 +1,40 @@
+2019-08-07 08:03:58.4449 Info Message Template Auto Format enabled
+2019-08-07 08:03:58.4758 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-07 08:03:58.6759 Info Adding target FileTarget(Name=alldata)
+2019-08-07 08:03:58.6946 Info Adding target FileTarget(Name=otherFile-web)
+2019-08-07 08:03:58.8363 Info Found 45 configuration items
+2019-08-07 08:08:01.4525 Info Message Template Auto Format enabled
+2019-08-07 08:08:01.5032 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-07 08:08:01.6641 Info Adding target FileTarget(Name=alldata)
+2019-08-07 08:08:01.6821 Info Adding target FileTarget(Name=otherFile-web)
+2019-08-07 08:08:01.7982 Info Found 45 configuration items
+2019-08-07 08:10:34.3917 Info Configuration file change detected! Reloading in 1000ms...
+2019-08-07 08:10:35.4084 Info Reloading configuration...
+2019-08-07 08:10:35.4515 Info Configuring from an XML element in nlog.config...
+2019-08-07 08:10:35.4636 Info Message Template Auto Format enabled
+2019-08-07 08:10:35.4711 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-07 08:10:35.4870 Info Adding target FileTarget(Name=alldata)
+2019-08-07 08:10:35.5590 Error Parsing configuration from nlog.config failed. Exception: NLog.NLogConfigurationException: Exception when parsing nlog.config.  ---> NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+   at NLog.Config.LoggingConfigurationParser.ParseLoggingRuleTargets(String writeTargets, LoggingRule rule)
+   at NLog.Config.LoggingConfigurationParser.ParseRuleElement(ILoggingConfigurationElement loggerElement)
+   at NLog.Config.LoggingConfigurationParser.ParseRulesElement(ILoggingConfigurationElement rulesElement, IList`1 rulesCollection)
+   at NLog.Config.LoggingConfigurationParser.LoadConfig(ILoggingConfigurationElement nlogConfig, String basePath)
+   at NLog.Config.XmlLoggingConfiguration.ParseNLogElement(ILoggingConfigurationElement nlogElement, String filePath, Boolean autoReloadDefault)
+   at NLog.Config.XmlLoggingConfiguration.Initialize(XmlReader reader, String fileName, Boolean ignoreErrors)
+   --- End of inner exception stack trace ---
+2019-08-07 08:10:35.5670 Warn NLog Config Reload() failed. Invalid XML?
+2019-08-07 08:10:38.4356 Info Configuration file change detected! Reloading in 1000ms...
+2019-08-07 08:10:39.4677 Info Reloading configuration...
+2019-08-07 08:10:39.4790 Info Configuring from an XML element in nlog.config...
+2019-08-07 08:10:39.4873 Info Message Template Auto Format enabled
+2019-08-07 08:10:39.4873 Info Loading assembly: NLog.Web.AspNetCore
+2019-08-07 08:10:39.5074 Info Adding target FileTarget(Name=alldata)
+2019-08-07 08:10:39.5074 Error Parsing configuration from nlog.config failed. Exception: NLog.NLogConfigurationException: Exception when parsing nlog.config.  ---> NLog.NLogConfigurationException: Target 'otherFile-web' not found for logging rule: *.
+   at NLog.Config.LoggingConfigurationParser.ParseLoggingRuleTargets(String writeTargets, LoggingRule rule)
+   at NLog.Config.LoggingConfigurationParser.ParseRuleElement(ILoggingConfigurationElement loggerElement)
+   at NLog.Config.LoggingConfigurationParser.ParseRulesElement(ILoggingConfigurationElement rulesElement, IList`1 rulesCollection)
+   at NLog.Config.LoggingConfigurationParser.LoadConfig(ILoggingConfigurationElement nlogConfig, String basePath)
+   at NLog.Config.XmlLoggingConfiguration.ParseNLogElement(ILoggingConfigurationElement nlogElement, String filePath, Boolean autoReloadDefault)
+   at NLog.Config.XmlLoggingConfiguration.Initialize(XmlReader reader, String fileName, Boolean ignoreErrors)
+   --- End of inner exception stack trace ---
+2019-08-07 08:10:39.5197 Warn NLog Config Reload() failed. Invalid XML?

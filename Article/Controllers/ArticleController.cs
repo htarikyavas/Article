@@ -6,49 +6,55 @@ using Article.Core.Models;
 using Article.Services.Articles;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Article.WebApi.Controllers
 {
     [Authorize]
     public class ArticleController : ControllerBase
     {
-        private readonly IArticleService articleService;
+        private readonly IArticleService _articleService;
+        private readonly ILogger<ArticleController> _logger;
 
-        public ArticleController(IArticleService articleService)
+        public ArticleController(IArticleService articleService, ILogger<ArticleController> logger)
         {
-            this.articleService = articleService;
+            _articleService = articleService;
+            _logger = logger;
         }
 
         [HttpGet("article")]
         public async Task<List<ArticleModel>> All()
         {
-            return await articleService.All();
+
+            _logger.LogInformation("All Articles Listed");
+
+            return await _articleService.All();
         }
 
         [HttpGet("article/{id}")]
         public async Task<ArticleModel> Single(int id)
         {
-            return await articleService.Get(id);
+            return await _articleService.Get(id);
         }
 
         [HttpDelete("article/{id}")]
         public async Task Delete(int id)
         {
-            await articleService.Delete(id);
+            await _articleService.Delete(id);
         }
 
         [HttpPut("article")]
         public async Task<ArticleModel> Insert([FromBody] ArticleModel article)
         {
-            var id = await articleService.Add(article);
-            return await articleService.Get(id);
+            var id = await _articleService.Add(article);
+            return await _articleService.Get(id);
         }
 
         [HttpPatch("article/{id}")]
         public async Task<ArticleModel> Update(int id, [FromBody] ArticleModel article)
         {
-            await articleService.Update(id, article);
-            return await articleService.Get(id);
+            await _articleService.Update(id, article);
+            return await _articleService.Get(id);
         }
     }
 }

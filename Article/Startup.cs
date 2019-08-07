@@ -84,7 +84,6 @@ namespace Article
         {
 
 
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
